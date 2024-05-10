@@ -29,6 +29,8 @@ export const Stopwatch = () => {
   const handleReset = () => {
     setTime(0);
     setCurrentLap(0);
+    laps.splice(0);
+    lapsFormated.splice(0);
   };
   
   const handleLap = () => {

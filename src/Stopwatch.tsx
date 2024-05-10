@@ -1,8 +1,17 @@
 import { useState, useEffect } from "react";
 
 const lapsFormated: Array<string> = [];
-const laps:Array<number> = []
+const laps: Array<number> = []
 
+const lapsCircuits = () => {
+
+  return (
+    <ul>
+      {lapsFormated.map((el, indexOf) => <li key={indexOf}>{indexOf + 1} - { el }</li>)}
+    </ul>
+  )
+  
+}
 
 export const Stopwatch = () => {
   const [time, setTime] = useState(0);
@@ -71,7 +80,8 @@ export const Stopwatch = () => {
   return (<>
       <div>
         <p>{formatTime(time)}</p>
-        <p>{formatTime(currentLap)}</p>
+      <p>{formatTime(currentLap)}</p>
+      <div>{lapsCircuits()}</div>
         <button onClick={handleStart}>Start</button>
         <button onClick={handleStop}>Stop</button>
         <button onClick={handleReset}>Reset</button>

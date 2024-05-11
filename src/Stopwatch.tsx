@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Button } from "./Button";
 
 const lapsFormated: Array<string> = [];
 const laps: Array<number> = []
@@ -84,10 +85,11 @@ export const Stopwatch = () => {
         <p>{formatTime(time)}</p>
       <p>{formatTime(currentLap)}</p>
       <div>{lapsCircuits()}</div>
-        <button onClick={handleStart}>Start</button>
-        <button onClick={handleStop}>Stop</button>
-        <button onClick={handleReset}>Reset</button>
-        <button onClick={handleLap}>Lap</button>
+      <Button name='Start' method={handleStart} />
+      <Button name='Stop' method={handleStop} />
+      <Button name='Reset' method={handleReset} />
+      <Button name='Lap' method={handleLap} />
+
       </div>
     <div>
       {timeLaps()}

@@ -7,6 +7,5 @@ export const FormatTime = ({ time }:FormatTimeProps ) => {
     const seconds = Math.floor(time % 60);
     const milliseconds = Math.floor((time % 1) * 100);
     
-    return `${minutes}:${seconds}:${milliseconds}`;
+    return <span>{`${minutes}:${seconds}:${milliseconds}`}</span>;
 };
-  

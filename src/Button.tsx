@@ -9,4 +9,4 @@ export const Button = ({ name, method }: ButtonProps) => {
 
   
     return <button onClick={method}>{ name }</button>
-}
+};

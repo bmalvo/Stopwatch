@@ -62,18 +62,18 @@ export const Stopwatch = () => {
       <TotalTime time={time} />
       <CurrentLapTime time={currentLap} />
       <LapsCircuits array={lapsFormated} />
-      <Button name='Start' method={handleStart} />
-      <Button name='Stop' method={handleStop} />
-      <Button name='Reset' method={handleReset} />
-      <Button name='Lap' method={handleLap} />
+      <Button nameClass='btn-start'  name='Start' method={handleStart} />
+      <Button nameClass='btn-stop' name='Stop' method={handleStop} />
+      <Button nameClass='btn-reset' name='Reset' method={handleReset} />
+      <Button nameClass='btn-lap' name='Lap' method={handleLap} />
 
     </div>
     } 
     return <div>
       <CircuitsBox arrayString={lapsFormated} arrayNumber={laps} time={time} />
-      <Button name='Start' method={handleStart} />
-      <Button name='Stop' method={handleStop} />
-      <Button name='Reset' method={handleReset} />
-      <Button name='Lap' method={handleLap} />
+      <Button nameClass='btn-start' name='Start' method={handleStart} />
+      <Button nameClass='btn-stop' name='Stop' method={handleStop} />
+      <Button nameClass='btn-reset' name='Reset' method={handleReset} />
+      <Button nameClass='btn-lap' name='Lap' method={handleLap} />
     </div>
 };

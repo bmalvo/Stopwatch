@@ -24,6 +24,7 @@ a:hover {
 
 body {
   margin: 0;
+  margin-left: 30%;
   display: flex;
   place-items: center;
   min-width: 320px;
@@ -45,6 +46,7 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  margin: 2px;
 }
 button:hover {
   border-color: #646cff;
@@ -52,6 +54,22 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+.btn-start {
+  color: rgb(0, 255, 30);
+}
+
+.btn-stop {
+  color: red;
+}
+
+.btn-reset {
+  color: rgb(8, 0, 255);
+}
+
+.btn-lap {
+  color: rgb(221, 255, 0);
 }
 
 @media (prefers-color-scheme: light) {

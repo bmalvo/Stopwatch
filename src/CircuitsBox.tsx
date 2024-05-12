@@ -1,12 +1,12 @@
 import { FormatTime } from "./FormatTime";
 
-type TimeLapsProps = {
+type CircuitsBoxProps = {
     arrayString: Array<string>;
     arrayNumber: Array<number>;
     time: number;
 }
 
-export const TimeLaps = ({ arrayString, arrayNumber, time }: TimeLapsProps) => {
+export const CircuitsBox = ({ arrayString, arrayNumber, time }: CircuitsBoxProps) => {
      
     const avrLapsTime = () => {
         const averageTime = arrayNumber.reduce((acc, curr) => acc + curr, 0) / arrayNumber.length;

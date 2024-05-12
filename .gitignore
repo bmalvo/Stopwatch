@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# files
+
+57._Projekt_podsumowujacy_Stopwatch.pdf
+.gitignore

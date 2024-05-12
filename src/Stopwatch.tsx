@@ -1,18 +1,12 @@
 import { useState, useEffect } from "react";
 import { Button } from "./Button";
+import { LapsCircuits } from "./LapsCircuits";
+import { CircuitsBox } from "./CircuitsBox";
+import { TotalTime } from "./TotalTime";
+import { CurrentLapTime } from "./CurrentLapTime";
 
 const lapsFormated: Array<string> = [];
 const laps: Array<number> = []
-
-const lapsCircuits = () => {
-
-  return (
-    <ul>
-      {lapsFormated.map((el, indexOf) => <li key={indexOf}>{indexOf + 1} - { el }</li>)}
-    </ul>
-  )
-  
-}
 
 export const Stopwatch = () => {
   const [time, setTime] = useState(0);
@@ -21,7 +15,7 @@ export const Stopwatch = () => {
   
   const handleStart = () => {
     setIsRunning(true);
-    };
+  };
 
   const handleStop = () => {
     setIsRunning(false);
@@ -35,19 +29,19 @@ export const Stopwatch = () => {
   };
   
   const handleLap = () => {
-    lapsFormated.push(formatTime(currentLap))
-    laps.push(currentLap);
-    setCurrentLap(0);
-    lapsFormated.sort();
-    console.log(lapsFormated)
-    console.log(laps)
-  }
+    if (currentLap && isRunning) {
+      lapsFormated.push(formatTime(currentLap))
+      laps.push(currentLap);
+      setCurrentLap(0);
+      lapsFormated.sort();
+    }
+  };
 
   useEffect(() => {
     if (isRunning) {
       const interval = setInterval(() => {
         setTime((prevTime) => prevTime + 0.01),
-        setCurrentLap(prevTime => prevTime + 0.01);
+          setCurrentLap(prevTime => prevTime + 0.01);
       }, 10);
       
       return () => clearInterval(interval);
@@ -61,39 +55,25 @@ export const Stopwatch = () => {
     
     return `${minutes}:${seconds}:${milliseconds}`;
   };
-  
-  const avrLapsTime = () => {
-    const average = laps.reduce((acc, curr) => acc + curr, 0) / laps.length;
-    return formatTime(average);
-  }
-  // Time Laps
 
-  const timeLaps = () => {
-
+  if (isRunning) {
 
     return <div>
-      <p>Time: {laps? formatTime(time): ''}</p>
-      <p>Average time: { avrLapsTime() }</p>
-      <p>Fastest lap: { lapsFormated[0] }</p>
-      <p>Slowest lap: { lapsFormated[lapsFormated.length-1] }</p>
-      <p>Laps number: { lapsFormated.length }</p>
-    </div>
-  }
-
-  return (<>
-      <div>
-        <p>{formatTime(time)}</p>
-      <p>{formatTime(currentLap)}</p>
-      <div>{lapsCircuits()}</div>
+      <TotalTime time={time} />
+      <CurrentLapTime time={currentLap} />
+      <LapsCircuits array={lapsFormated} />
       <Button name='Start' method={handleStart} />
       <Button name='Stop' method={handleStop} />
       <Button name='Reset' method={handleReset} />
       <Button name='Lap' method={handleLap} />
 
-      </div>
-    <div>
-      {timeLaps()}
-      </div>
-    </>
-    )
-  }
+    </div>
+    } 
+    return <div>
+      <CircuitsBox arrayString={lapsFormated} arrayNumber={laps} time={time} />
+      <Button name='Start' method={handleStart} />
+      <Button name='Stop' method={handleStop} />
+      <Button name='Reset' method={handleReset} />
+      <Button name='Lap' method={handleLap} />
+    </div>
+};

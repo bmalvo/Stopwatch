@@ -4,14 +4,14 @@ type CircuitsBoxProps = {
     arrayString: Array<string>;
     arrayNumber: Array<number>;
     time: number;
-}
+};
 
 export const CircuitsBox = ({ arrayString, arrayNumber, time }: CircuitsBoxProps) => {
      
     const avrLapsTime = () => {
         const averageTime = arrayNumber.reduce((acc, curr) => acc + curr, 0) / arrayNumber.length;
-        return <FormatTime time={averageTime} />;
-    }
+        return averageTime ? <FormatTime time={averageTime} /> : '';
+    };
 
 
     return <div>

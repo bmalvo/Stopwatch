@@ -4,6 +4,7 @@ import { CircuitsBox } from "./CircuitsBox";
 import { TotalTime } from "./TotalTime";
 import { CurrentLapTime } from "./CurrentLapTime";
 import { Buttons } from "./Buttons";
+import { Sprinter } from "./Sprinter";
 
 const lapsFormated: Array<string> = [];
 const laps: Array<number> = []
@@ -31,7 +32,7 @@ export const Stopwatch = () => {
   if (isRunning || totalReset) {
 
     return <div>
-      <img src="src\assets\sprint.png" alt="sprinter gif" className={ isRunning? 'sprinter-blink': 'sprinter'} />
+      <Sprinter isRunning={ isRunning} />
       <TotalTime time={time} />
       <CurrentLapTime time={currentLap} />
       <LapsCircuits array={lapsFormated} />

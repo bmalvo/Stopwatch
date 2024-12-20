@@ -24,12 +24,12 @@ a:hover {
 
 body {
   margin: 0 auto;
-  /* margin-left: 30%; */
   display: flex;
   place-items: center;
   text-align: center;
   min-width: 320px;
   min-height: 100vh;
+  justify-content: center;
 }
 
 h1 {
@@ -83,5 +83,27 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+
+.sprinter {
+
+  width: 8rem;
+}
+
+.sprinter-blink {
+  width: 8rem;
+  animation: blink-animation 1s steps(5, start) infinite;
+}
+
+@keyframes blink-animation {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
   }
 }

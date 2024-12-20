@@ -1,45 +1,20 @@
 import { useState, useEffect } from "react";
-import { Button } from "./Button";
 import { LapsCircuits } from "./LapsCircuits";
 import { CircuitsBox } from "./CircuitsBox";
 import { TotalTime } from "./TotalTime";
 import { CurrentLapTime } from "./CurrentLapTime";
-import { TimeDisplay } from "./TimeDisplay";
+import { Buttons } from "./Buttons";
 
 const lapsFormated: Array<string> = [];
 const laps: Array<number> = []
 
 export const Stopwatch = () => {
+
   const [time, setTime] = useState(0);
-  const [currentLap, setCurrentLap] = useState(1);
+  const [currentLap, setCurrentLap] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
   const [totalReset, setTotalRest] = useState(true);
-  
-  const handleStart = () => {
-    setIsRunning(true);
-  };
 
-  const handleStop = () => {
-    setIsRunning(false);
-    setTotalRest(false);
-  };
-
-  const handleReset = () => {
-    setTime(0);
-    setCurrentLap(0);
-    laps.splice(0);
-    lapsFormated.splice(0);
-    !isRunning ? setTotalRest(true) : null;
-  };
-  
-  const handleLap = () => {
-    if (currentLap && isRunning) {
-      lapsFormated.push(TimeDisplay(currentLap))
-      laps.push(currentLap);
-      setCurrentLap(0);
-      lapsFormated.sort();
-    }
-  };
 
   useEffect(() => {
     if (isRunning) {
@@ -56,21 +31,16 @@ export const Stopwatch = () => {
   if (isRunning || totalReset) {
 
     return <div>
+      <img src="src\assets\sprint.png" alt="" />
       <TotalTime time={time} />
       <CurrentLapTime time={currentLap} />
       <LapsCircuits array={lapsFormated} />
-      <Button nameClass='btn-start'  name='Start' method={handleStart} />
-      <Button nameClass='btn-stop' name='Stop' method={handleStop} />
-      <Button nameClass='btn-reset' name='Reset' method={handleReset} />
-      <Button nameClass='btn-lap' name='Lap' method={handleLap} />
+      <Buttons isRunning={ isRunning} setIsRunning={setIsRunning} setTotalRest={setTotalRest} setTime={setTime} setCurrentLap={setCurrentLap} laps={laps} lapsFormated={lapsFormated} currentLap={currentLap}/>
 
     </div>
     } 
     return <div>
       <CircuitsBox arrayString={lapsFormated} arrayNumber={laps} time={time} />
-      <Button nameClass='btn-start' name='Start' method={handleStart} />
-      <Button nameClass='btn-stop' name='Stop' method={handleStop} />
-      <Button nameClass='btn-reset' name='Reset' method={handleReset} />
-      <Button nameClass='btn-lap' name='Lap' method={handleLap} />
+      <Buttons isRunning={ isRunning} setIsRunning={setIsRunning} setTotalRest={setTotalRest} setTime={setTime} setCurrentLap={setCurrentLap} laps={laps} lapsFormated={lapsFormated} currentLap={currentLap}/>
     </div>
 };

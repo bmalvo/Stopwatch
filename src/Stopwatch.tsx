@@ -31,7 +31,7 @@ export const Stopwatch = () => {
   if (isRunning || totalReset) {
 
     return <div>
-      <img src="src\assets\sprint.png" alt="" />
+      <img src="src\assets\sprint.png" alt="sprinter gif" className={ isRunning? 'sprinter-blink': 'sprinter'} />
       <TotalTime time={time} />
       <CurrentLapTime time={currentLap} />
       <LapsCircuits array={lapsFormated} />

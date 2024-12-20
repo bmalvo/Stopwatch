@@ -13,6 +13,7 @@ export const Stopwatch = () => {
   const [time, setTime] = useState(0);
   const [currentLap, setCurrentLap] = useState(1);
   const [isRunning, setIsRunning] = useState(false);
+  const [totalReset, setTotalRest] = useState(true);
   
   const handleStart = () => {
     setIsRunning(true);
@@ -20,6 +21,7 @@ export const Stopwatch = () => {
 
   const handleStop = () => {
     setIsRunning(false);
+    setTotalRest(false);
   };
 
   const handleReset = () => {
@@ -27,6 +29,7 @@ export const Stopwatch = () => {
     setCurrentLap(0);
     laps.splice(0);
     lapsFormated.splice(0);
+    !isRunning ? setTotalRest(true) : null;
   };
   
   const handleLap = () => {
@@ -50,7 +53,7 @@ export const Stopwatch = () => {
   }, [isRunning]);
   
 
-  if (isRunning) {
+  if (isRunning || totalReset) {
 
     return <div>
       <TotalTime time={time} />

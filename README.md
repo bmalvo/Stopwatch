@@ -1,30 +1,19 @@
-# React + TypeScript + Vite
+# Stopwatch
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Stopwatch** is a web application built with **React**, **Vite**, and **TypeScript**. 
 
-Currently, two official plugins are available:
+This app features a user-friendly interface and is composed of several reusable components.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Getting Started
 
-## Expanding the ESLint configuration
+To get started with development:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. **Clone the repository** to your local machine.
+2. **Install the dependencies** by running:
+   ```bash
+   npm install
 
-- Configure the top-level `parserOptions` property like this:
+## Live Demo
+Want to see the result? Check out the live demo here: [Stopwatch](https://skonieczny-stopwatch.netlify.app)
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Feel free to contribute or reach out with any questions!

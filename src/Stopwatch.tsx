@@ -4,13 +4,14 @@ import { LapsCircuits } from "./LapsCircuits";
 import { CircuitsBox } from "./CircuitsBox";
 import { TotalTime } from "./TotalTime";
 import { CurrentLapTime } from "./CurrentLapTime";
+import { TimeDisplay } from "./TimeDisplay";
 
 const lapsFormated: Array<string> = [];
 const laps: Array<number> = []
 
 export const Stopwatch = () => {
   const [time, setTime] = useState(0);
-  const [currentLap, setCurrentLap] = useState(0);
+  const [currentLap, setCurrentLap] = useState(1);
   const [isRunning, setIsRunning] = useState(false);
   
   const handleStart = () => {
@@ -30,7 +31,7 @@ export const Stopwatch = () => {
   
   const handleLap = () => {
     if (currentLap && isRunning) {
-      lapsFormated.push(formatTime(currentLap))
+      lapsFormated.push(TimeDisplay(currentLap))
       laps.push(currentLap);
       setCurrentLap(0);
       lapsFormated.sort();
@@ -48,13 +49,6 @@ export const Stopwatch = () => {
     }
   }, [isRunning]);
   
-  const formatTime = (time: number) => {
-    const minutes = Math.floor(time / 60);
-    const seconds = Math.floor(time % 60);
-    const milliseconds = Math.floor((time % 1) * 100);
-    
-    return `${minutes}:${seconds}:${milliseconds}`;
-  };
 
   if (isRunning) {
 

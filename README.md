@@ -14,6 +14,6 @@ To get started with development:
    npm install
 
 ## Live Demo
-Want to see the result? Check out the live demo here: [Simple CV](https://skonieczny-stopwatch.netlify.app)
+Want to see the result? Check out the live demo here: [Stopwatch](https://skonieczny-stopwatch.netlify.app)
 
 Feel free to contribute or reach out with any questions!

@@ -13,12 +13,15 @@ export const CircuitsBox = ({ arrayString, arrayNumber, time }: CircuitsBoxProps
         return averageTime ? <FormatTime time={averageTime} /> : '';
     };
 
+    const sortedLaps = arrayString.sort();
+    console.log(sortedLaps);
+
 
     return <div>
         <p>Time: {arrayNumber ? <FormatTime time={time} /> : ''}</p>
         <p>Average time: {avrLapsTime()}</p>
-        <p>Fastest lap: {arrayString[0]}</p>
-        <p>Slowest lap: {arrayString[arrayString.length - 1]}</p>
+        <p>Fastest lap: {sortedLaps[0]}</p>
+        <p>Slowest lap: {sortedLaps[sortedLaps.length - 1]}</p>
         <p>Laps number: {arrayString.length}</p>
     </div>
 };

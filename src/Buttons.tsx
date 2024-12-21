@@ -37,7 +37,7 @@ export const Buttons = ({isRunning, setIsRunning, setTotalRest, setTime, setCurr
           lapsFormated.push(TimeDisplay(currentLap))
           laps.push(currentLap);
           setCurrentLap(0);
-          lapsFormated.sort();
+          lapsFormated;
         }
     };
     
